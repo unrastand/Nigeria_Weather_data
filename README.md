@@ -1,8 +1,8 @@
 Weather Data Analysis for Nigerian States - README
-Overview
+**Overview**
 This repository contains data analysis and insights derived from weather datasets obtained from NASA's POWER (Prediction Of Worldwide Energy Resources) database. The dataset includes various parameters crucial for understanding climate dynamics and their impact on agriculture and environmental conditions in Nigeria.
 
-Dataset Description
+**Dataset Description**
 The weather dataset used in this analysis includes the following parameters (MERRA-2 and CERES SYN1deg):
 
 TS: MERRA-2 Earth Skin Temperature (C)
@@ -23,7 +23,8 @@ CLRSKY_SFC_SW_DWN: CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance
 ALLSKY_SFC_PAR_TOT: CERES SYN1deg All Sky Surface PAR Total (W/m^2)
 ALLSKY_SFC_SW_DIFF: CERES SYN1deg All Sky Surface Shortwave Diffuse Irradiance (MJ/m^2/day)
 CLRSKY_SFC_PAR_TOT: CERES SYN1deg Clear Sky Surface PAR Total (W/m^2)
-Analysis Summary
+
+**Analysis Summary**
 The data analysis focuses on providing insights into climate patterns, annual and monthly variations, and year-over-year changes for Nigerian states. Key metrics and insights derived include:
 
 Summary statistics for each parameter.
@@ -34,7 +35,7 @@ Recommendations for agricultural planning, climate resilience, and policy-making
 SQL Queries and Insights
 The analysis involved SQL queries to summarize and analyze the data. Here are some key queries and insights:
 
-Viewing the Data:
+**Viewing the Data:**
 
 Query: SELECT * FROM tableName;
 Insight: Understand the structure and content of the dataset.
@@ -74,12 +75,14 @@ Monthly Average Trends Over Time:
 
 Query: SELECT year, AVG(monthly_average) AS avg_monthly FROM tableName GROUP BY year ORDER BY year;
 Insight: Identify trends in monthly averages over time.
-Recommendations
+
+**Recommendations**
 Based on the analysis, the following recommendations are provided:
 
 Adjust agricultural practices based on climate trends and variability.
 Enhance climate resilience strategies tailored to state-specific conditions.
 Inform policy decisions with data-driven insights on climate impacts.
 Foster collaboration among stakeholders for effective climate change adaptation.
-Value Proposition
+
+**Value Proposition**
 The weather data analysis provides actionable insights that empower stakeholders in agriculture, climate research, and policy-making to make informed decisions, enhance operational efficiency, and promote sustainable practices in Nigeria.
