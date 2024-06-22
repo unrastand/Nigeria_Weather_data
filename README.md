@@ -1,88 +1,64 @@
-Weather Data Analysis for Nigerian States - README
-**Overview**
-This repository contains data analysis and insights derived from weather datasets obtained from NASA's POWER (Prediction Of Worldwide Energy Resources) database. The dataset includes various parameters crucial for understanding climate dynamics and their impact on agriculture and environmental conditions in Nigeria.
+Project Title: Weather Data Analysis for Nigeria States For Agriculture
+Author: Israel Oluwasegun Kolawole
+Introduction
+This project involves the comprehensive analysis of weather data specific to various states in Nigeria to derive actionable insights for agricultural decision-making. The dataset used is sourced from NASA's POWER Data Access Viewer, including key meteorological parameters such as temperature, humidity, wind speed, precipitation, and solar irradiance.
 
-**Dataset Description**
-The weather dataset used in this analysis includes the following parameters (MERRA-2 and CERES SYN1deg):
+Dataset Overview
+Source: NASA's POWER Data Access Viewer
+Parameters: Temperature, humidity, wind speed, precipitation, solar irradiance, and more.
+Purpose: Understanding climatic conditions affecting agricultural productivity in Nigeria.
+Client
+The end users of the analysis are agricultural stakeholders in Nigeria, including Agricultural Development Officers (ADO), farmers, policymakers, and researchers who aim to enhance crop yields, manage resources efficiently, and ensure sustainable farming practices.
 
-TS: MERRA-2 Earth Skin Temperature (C)
-T2M: MERRA-2 Temperature at 2 Meters (C)
-QV2M: MERRA-2 Specific Humidity at 2 Meters (g/kg)
-RH2M: MERRA-2 Relative Humidity at 2 Meters (%)
-WD2M: MERRA-2 Wind Direction at 2 Meters (Degrees)
-WS2M: MERRA-2 Wind Speed at 2 Meters (m/s)
-T2MWET: MERRA-2 Wet Bulb Temperature at 2 Meters (C)
-T2M_MAX: MERRA-2 Temperature at 2 Meters Maximum (C)
-T2M_MIN: MERRA-2 Temperature at 2 Meters Minimum (C)
-GWETROOT: MERRA-2 Root Zone Soil Wetness (1)
-CLOUD_AMT: CERES SYN1deg Cloud Amount (%)
-ALLSKY_SFC_UVA: CERES SYN1deg All Sky Surface UVA Irradiance (W/m^2)
-PRECTOTCORR_SUM: MERRA-2 Precipitation Corrected Sum (mm)
-ALLSKY_SFC_SW_DWN: CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (MJ/m^2/day)
-CLRSKY_SFC_SW_DWN: CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance (MJ/m^2/day)
-ALLSKY_SFC_PAR_TOT: CERES SYN1deg All Sky Surface PAR Total (W/m^2)
-ALLSKY_SFC_SW_DIFF: CERES SYN1deg All Sky Surface Shortwave Diffuse Irradiance (MJ/m^2/day)
-CLRSKY_SFC_PAR_TOT: CERES SYN1deg Clear Sky Surface PAR Total (W/m^2)
+Operational Analytics Problem Statement
+The analysis seeks to address the challenge of optimizing agricultural practices amidst varying weather conditions across Nigeria. This includes improving resource management, mitigating risks due to climate variability, and enhancing overall agricultural productivity.
 
-**Analysis Summary**
-The data analysis focuses on providing insights into climate patterns, annual and monthly variations, and year-over-year changes for Nigerian states. Key metrics and insights derived include:
+Data Cleaning and Preprocessing
+Data Integrity: Ensured by removing duplicates and correcting inconsistencies.
+Handling Missing Values: Managed using deletion, mean imputation, and interpolation.
+Filtering Outliers: Performed to remove anomalies using threshold-based filtering.
+Normalizing Data: Achieved to bring variables onto a common scale for better comparison.
+Excel Analysis
+Calculations: Derived metrics such as average temperatures and total precipitation.
+Pivot Tables: Created to summarize data by states and months.
+Charts: Developed line charts for temperature trends, bar charts for precipitation patterns, and scatter plots for solar irradiance.
+Excel What-If Analysis
+Scenario Analysis: Explored different weather scenarios and their impact on crop yields.
+Sensitivity Analysis: Assessed how variations in temperature and precipitation affect agricultural outputs.
+SQL Analysis
+Functions Used:
+SELECT: To view the data.
+SUM(), AVG(), MAX(), COUNT(): For aggregating and summarizing data.
+GROUP BY: To categorize data by states and parameters.
+ORDER BY: To sort results.
+CORR(): To find correlations between parameters.
+Key Queries:
+Viewing Data: SELECT * FROM tableName;
+Annual Totals by State: SELECT states, SUM(annual_total) as total_annual_total FROM tableName GROUP BY states;
+Average Monthly Values: SELECT parameter, AVG(monthly_average) as avg_monthly_average FROM tableName GROUP BY parameter;
+Maximum Year-over-Year Change: SELECT states, MAX(year_over_year_change) as max_change FROM tableName GROUP BY states;
+Yearly Summary Statistics: SELECT year, AVG(monthly_average) as avg_monthly, SUM(annual_total) as total_annual, AVG(year_over_year_change) as avg_change FROM tableName GROUP BY year;
+PowerBI Visualization
+Line Charts: For annual temperature and precipitation trends.
+Bar Charts: For monthly average temperatures and precipitation.
+Scatter Plots: For analyzing relationships between parameters like temperature and humidity.
+Geographical Maps: For visualizing regional temperature variations and precipitation patterns.
+Conclusion and Recommendations
+Key Findings:
+Significant temperature and precipitation variations across states.
+Humidity and wind speeds impact crop health and pollination efficiency.
+Solar radiation influences crop photosynthesis and energy potential.
+Extreme weather events require robust risk management strategies.
+Actionable Recommendations:
+Adjust planting and harvesting schedules.
+Develop efficient irrigation plans.
+Enhance pest and disease management.
+Optimize crop selection.
+Plan for climate change adaptation.
+Implement soil management practices.
+Improve data accessibility for farmers.
+Support government policy development.
+Promote sustainable agricultural practices.
+Value Proposition
+This analysis provides valuable insights and recommendations for optimizing agricultural practices, enhancing crop yields, and ensuring sustainable farming in Nigeria. It empowers stakeholders with data-driven decision-making tools and supports policy development for climate resilience and food security.
 
-Summary statistics for each parameter.
-Annual totals and averages across states.
-Yearly trends and variations in climate parameters.
-Correlation between different weather variables.
-Recommendations for agricultural planning, climate resilience, and policy-making.
-SQL Queries and Insights
-The analysis involved SQL queries to summarize and analyze the data. Here are some key queries and insights:
-
-**Viewing the Data:**
-
-Query: SELECT * FROM tableName;
-Insight: Understand the structure and content of the dataset.
-Summarizing Annual Totals by State:
-
-Query: SELECT states, SUM(annual_total) AS total_annual_total FROM tableName GROUP BY states;
-Insight: Identify states with the highest and lowest total values.
-Average Monthly Values by Parameter:
-
-Query: SELECT parameter, AVG(monthly_average) AS avg_monthly_average FROM tableName GROUP BY parameter;
-Insight: Understand typical conditions for each parameter.
-Maximum Year-over-Year Change by State:
-
-Query: SELECT states, MAX(year_over_year_change) AS max_change FROM tableName GROUP BY states;
-Insight: Highlight states with significant changes.
-Trend Analysis for a Specific State:
-
-Query: SELECT year, annual_total FROM tableName WHERE states = 'California' ORDER BY year;
-Insight: Visualize trends for a specific state.
-States with Increasing Year-over-Year Changes:
-
-Query: SELECT states, COUNT(*) AS increase_count FROM tableName WHERE year_over_year_change > 0 GROUP BY states;
-Insight: Identify states with consistent growth.
-Correlation Between Monthly Average and Annual Total:
-
-Query: SELECT CORR(monthly_average, annual_total) AS correlation FROM tableName;
-Insight: Understand the relationship between monthly averages and annual totals.
-Yearly Summary Statistics:
-
-Query: SELECT year, AVG(monthly_average) AS avg_monthly, SUM(annual_total) AS total_annual, AVG(year_over_year_change) AS avg_change FROM tableName GROUP BY year;
-Insight: Overview of yearly performance.
-Top 5 States with Highest Annual Totals:
-
-Query: SELECT states, SUM(annual_total) AS total_annual FROM tableName GROUP BY states ORDER BY total_annual DESC LIMIT 5;
-Insight: Highlight leading states based on annual totals.
-Monthly Average Trends Over Time:
-
-Query: SELECT year, AVG(monthly_average) AS avg_monthly FROM tableName GROUP BY year ORDER BY year;
-Insight: Identify trends in monthly averages over time.
-
-**Recommendations**
-Based on the analysis, the following recommendations are provided:
-
-Adjust agricultural practices based on climate trends and variability.
-Enhance climate resilience strategies tailored to state-specific conditions.
-Inform policy decisions with data-driven insights on climate impacts.
-Foster collaboration among stakeholders for effective climate change adaptation.
-
-**Value Proposition**
-The weather data analysis provides actionable insights that empower stakeholders in agriculture, climate research, and policy-making to make informed decisions, enhance operational efficiency, and promote sustainable practices in Nigeria.
